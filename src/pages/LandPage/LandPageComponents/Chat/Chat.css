@@ -1,0 +1,33 @@
+#Mensagens::-webkit-scrollbar
+{
+    background-color: black;
+    border-radius: 20px;
+    width: 8px;
+}
+#Mensagens::-webkit-scrollbar-thumb
+{
+    background-color: rgb(177, 177, 177);
+    border-radius: 20px;
+}
+#Mensagens .mensagemRecebida
+{
+    max-width: 45%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    clear: both;
+    padding: 10px;
+    border-radius: 30px;
+    border-top-left-radius: 0;
+    box-shadow: 5px 5px 2px 2px gray;
+}
+#Mensagens .mensagemEnviada
+{
+    max-width: 45%;
+    background-color: rgb(0, 0, 0);
+    clear: both;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    box-shadow: -5px 5px 2px 2px gray;
+}
