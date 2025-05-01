@@ -78,7 +78,7 @@ function Landpage() {
         <div className="relative w-full h-screen">
           <div className='absolute top-0 left-0 w-full h-full z-0'>
             <video className='w-full h-full object-cover ' playsInline autoPlay loop muted>
-              <source src='/Video_Furia.mp4'></source>
+              <source src='/Video_FuriaFundo.mp4'></source>
             </video>
           </div>
           <div className='relative z-10 w-full h-full bg-black/60 flex items-center justify-center pt-20'>
