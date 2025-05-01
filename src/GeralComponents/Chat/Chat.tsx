@@ -133,7 +133,7 @@ function Chat() {
           {error.length > 0 ? (<p className='text-red-500 text-center text-md'>{error}</p>) : (<p></p>)}
           {sucesso != ''? (<p className='text-green-500 text-center text-md'>{sucesso}</p>) : (<p></p>)}
           <hr />
-          <div id="Mensagens" className='h-[75%] md:h-130 w-full mt-3 overflow-y-auto'>
+          <div id="Mensagens" className='h-[75%] md:h-130 w-full overflow-y-auto'>
             {respostaIa.length > 0 && respostaIa.some(item => item.mensagem.trim() !== '') &&
               respostaIa
                 .filter(item => item.mensagem.trim() !== '' && item.resposta.trim() !== '')
