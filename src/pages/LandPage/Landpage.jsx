@@ -16,7 +16,7 @@ function Landpage() {
       const response = await axios.get('https://localhost:5000/coletaNoticias', {
         withCredentials: true
       });
-  
+
       if (response.status === 200 && Array.isArray(response.data.noticias)) {
         setNoticiasRecebidas(response.data.noticias);
         console.log(response.data.noticias)
@@ -39,35 +39,69 @@ function Landpage() {
     const container = noticiasRef.current;
     if (!container) return;
 
-    let scrollDirection = 1; // 1 para direita, -1 para esquerda
+    let scrollDirection = 1;
+    let interval = null;
+    let isUserInteracting = false;
+    let interactionTimeout = null;
 
-    const scroll = () => {
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    const startAutoScroll = () => {
+      if (interval) return; // já está rodando
+      interval = setInterval(() => {
+        if (!isUserInteracting && container) {
+          const maxScrollLeft = container.scrollWidth - container.clientWidth;
+          container.scrollLeft += scrollDirection;
 
-      container.scrollLeft += scrollDirection;
+          if (container.scrollLeft >= maxScrollLeft - 1) {
+            scrollDirection = -1;
+          } else if (container.scrollLeft <= 1) {
+            scrollDirection = 1;
+          }
+        }
+      }, 1);
+    };
 
-      // Pequena tolerância para detectar extremidades
-      if (container.scrollLeft >= maxScrollLeft - 1) {
-        scrollDirection = -1;
-      } else if (container.scrollLeft <= 1) {
-        scrollDirection = 1;
+    const stopAutoScroll = () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
       }
     };
 
-    const interval = setInterval(scroll, 2000); // ajuste a velocidade conforme desejado
+    const handleUserInteraction = () => {
+      isUserInteracting = true;
+      stopAutoScroll();
 
-    return () => clearInterval(interval);
+      if (interactionTimeout) clearTimeout(interactionTimeout);
+      interactionTimeout = setTimeout(() => {
+        isUserInteracting = false;
+        startAutoScroll();
+      }, 3000); // retoma o scroll após 3 segundos de inatividade
+    };
+
+    container.addEventListener('mousedown', handleUserInteraction);
+    container.addEventListener('touchstart', handleUserInteraction);
+    container.addEventListener('scroll', handleUserInteraction);
+
+    startAutoScroll();
+
+    return () => {
+      stopAutoScroll();
+      container.removeEventListener('mousedown', handleUserInteraction);
+      container.removeEventListener('touchstart', handleUserInteraction);
+      container.removeEventListener('scroll', handleUserInteraction);
+      if (interactionTimeout) clearTimeout(interactionTimeout);
+    };
   }, []);
 
 
   function parseMensagemComLinks(mensagem) {
     if (!mensagem) return "Sem Texto Anexado";
-  
+
     const regex = /(https?:\/\/[^\s]+)/g;
     const mensagemComLinks = mensagem.replace(regex, (url) => {
       return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">${url}</a>`;
     });
-  
+
     return mensagemComLinks;
   }
 
@@ -109,8 +143,8 @@ function Landpage() {
             id="NoticiasFuria"
             ref={noticiasRef}
           >
-            
-            { !noticias ? [
+
+            {!noticias ? [
               { img: '/Noticias/NoticiaFuria.jpg', texto: 'Treinos da Furia tem inicio em 24/04/2025' },
               { img: '/Noticias/CalendarioDeJogosFuria.jpg', texto: 'Calendario de Jogos Kings League já disponivel' },
               { img: '/Noticias/NoticiaFuria2.jpg', texto: 'A furiagg anunciou a ida de skullzcs ao banco de reservas. yek1ndar entra no time como stand-in.' },
@@ -126,32 +160,32 @@ function Landpage() {
                   {noticia.texto}
                 </p>
               </div>
-            )) 
-          :
-          noticiasRecebidas.map((noticia, i) => (
-              <>
-                <div key={i} className="inline-block md:w-180 h-100 md:h-140 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
-                <img src={noticia.imagem} className='w-full h-60 md:h-120 rounded-lg bg-white' />
-                <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap'
-                dangerouslySetInnerHTML={{ __html: parseMensagemComLinks(noticia.mensagem) }}
-                />
-              </div>
-              </>
-          ))}
+            ))
+              :
+              noticiasRecebidas.map((noticia, i) => (
+                <>
+                  <div key={i} className="inline-block md:w-180 h-100 md:h-140 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                    <img src={noticia.imagem} className='w-full h-60 md:h-120 rounded-lg bg-white' />
+                    <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap'
+                      dangerouslySetInnerHTML={{ __html: parseMensagemComLinks(noticia.mensagem) }}
+                    />
+                  </div>
+                </>
+              ))}
           </div>
 
-      <PesquisaUsuario />
+          <PesquisaUsuario />
 
-    </div >
+        </div >
 
-      <div className='flex justify-center items-center mt-50' >
-        <img src="/Patrocinadores/adidas.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
-        <img src="/Patrocinadores/cs.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
-        <img src="/Patrocinadores/lenovo.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
-        <img src="/Patrocinadores/ps.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
-        <img src="/Patrocinadores/redbull.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
-        <img src="/Patrocinadores/hellmanns.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
-      </div>
+        <div className='flex justify-center items-center mt-50' >
+          <img src="/Patrocinadores/adidas.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+          <img src="/Patrocinadores/cs.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+          <img src="/Patrocinadores/lenovo.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+          <img src="/Patrocinadores/ps.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+          <img src="/Patrocinadores/redbull.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+          <img src="/Patrocinadores/hellmanns.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+        </div>
 
       </div >
     </>
