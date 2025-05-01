@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 
-export function enviaDadosUser() {
+export function EnviaDadosUser() {
 
     const [janelaFeedback, setjanelaFeedback] = useState(false)
 

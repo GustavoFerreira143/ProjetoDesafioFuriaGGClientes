@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 
-export function pesquisaEstado() {
+export function PesquisaEstado() {
 
     const [estado, setEstado] = useState('');
     const [valor, setvalor] = useState('');

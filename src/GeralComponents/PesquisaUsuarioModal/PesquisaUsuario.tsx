@@ -1,7 +1,6 @@
 import React from 'react'
-import { enviaDadosUser } from './Funcionalidades/enviaDadosUser'
-import { pesquisaEstado } from './Funcionalidades/PesquisaEstado';
-
+import { EnviaDadosUser } from './Funcionalidades/EnviaDadosUser'
+import { PesquisaEstado } from './Funcionalidades/PesquisaEstado';
 
 function PesquisaUsuario() {
 
@@ -13,11 +12,11 @@ function PesquisaUsuario() {
         sucesso, setsucesso,
         LimpaDados, EnviaBackEnd, RecebeToken,
         viewToken, setviewToken,
-    } = enviaDadosUser();
+    } = EnviaDadosUser();
 
     const {
         setEstado, valor,
-    } = pesquisaEstado();
+    } = PesquisaEstado();
 
     return (
         <>
