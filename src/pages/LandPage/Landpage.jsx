@@ -54,7 +54,7 @@ function Landpage() {
       }
     };
 
-    const interval = setInterval(scroll, 1); // ajuste a velocidade conforme desejado
+    const interval = setInterval(scroll, 2000); // ajuste a velocidade conforme desejado
 
     return () => clearInterval(interval);
   }, []);
