@@ -40,52 +40,42 @@ function Landpage() {
     if (!container) return;
 
     let scrollDirection = 1;
-    let interval = null;
     let isUserInteracting = false;
     let interactionTimeout = null;
+    let animationFrame = null;
 
-    const startAutoScroll = () => {
-      if (interval) return; // já está rodando
-      interval = setInterval(() => {
-        if (!isUserInteracting && container) {
-          const maxScrollLeft = container.scrollWidth - container.clientWidth;
-          container.scrollLeft += scrollDirection;
+    const maxScrollLeft = () => container.scrollWidth - container.clientWidth;
 
-          if (container.scrollLeft >= maxScrollLeft - 1) {
-            scrollDirection = -1;
-          } else if (container.scrollLeft <= 1) {
-            scrollDirection = 1;
-          }
+    const autoScroll = () => {
+      if (!isUserInteracting) {
+        container.scrollLeft += scrollDirection * 1; // velocidade ajustável
+
+        if (container.scrollLeft >= maxScrollLeft() - 1) {
+          scrollDirection = -1;
+        } else if (container.scrollLeft <= 1) {
+          scrollDirection = 1;
         }
-      }, 1);
-    };
-
-    const stopAutoScroll = () => {
-      if (interval) {
-        clearInterval(interval);
-        interval = null;
       }
+
+      animationFrame = requestAnimationFrame(autoScroll);
     };
 
     const handleUserInteraction = () => {
       isUserInteracting = true;
-      stopAutoScroll();
-
       if (interactionTimeout) clearTimeout(interactionTimeout);
       interactionTimeout = setTimeout(() => {
         isUserInteracting = false;
-        startAutoScroll();
-      }, 3000); // retoma o scroll após 3 segundos de inatividade
+      }, 50); // retoma scroll após 2s sem interação
     };
 
     container.addEventListener('mousedown', handleUserInteraction);
     container.addEventListener('touchstart', handleUserInteraction);
     container.addEventListener('scroll', handleUserInteraction);
 
-    startAutoScroll();
+    animationFrame = requestAnimationFrame(autoScroll);
 
     return () => {
-      stopAutoScroll();
+      cancelAnimationFrame(animationFrame);
       container.removeEventListener('mousedown', handleUserInteraction);
       container.removeEventListener('touchstart', handleUserInteraction);
       container.removeEventListener('scroll', handleUserInteraction);
