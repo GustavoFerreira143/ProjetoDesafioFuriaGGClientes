@@ -1,6 +1,6 @@
 import React from 'react'
-import { EnviaDadosUser } from './Funcionalidades/EnviaDadosUser'
-import { PesquisaEstado } from './Funcionalidades/PesquisaEstado';
+import { EnviaDadosUser } from './Funcionalidades/enviaDadosUser'
+import { PesquisaEstado } from './Funcionalidades/pesquisaEstado';
 
 function PesquisaUsuario() {
 
