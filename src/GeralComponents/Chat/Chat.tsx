@@ -103,7 +103,7 @@ function Chat() {
 
   return (
     <>
-      <button className="fixed bottom-10 right-10 bg-white text-white p-5 w-15 h-15 md:w-18 md:h-18 rounded-full shadow-xl hover:bg-blue-700 transition duration-300 z-20 lg:z-40 cursor-pointer" onClick={() => {
+      <button className="fixed bottom-10 right-10 bg-white text-white p-3 w-15 h-15 md:w-18 md:h-18 rounded-full shadow-xl hover:bg-blue-700 transition duration-300 z-20 lg:z-40 cursor-pointer" onClick={() => {
         if (janelaVisivel) {
           setJanelaVisivel(false);
           document.body.style.overflow = 'auto';
@@ -113,7 +113,7 @@ function Chat() {
           window.scrollTo({ top: 0, behavior: 'smooth' }); 
         }
       }}>
-        <img src='/chat-dots-fill.svg' className='w-full' />
+        <img src='/Furia_Esports_logo.png' className='w-full' />
       </button>
       <div className={`fixed w-full h-full bg-black/80 z-30 transition-all duration-300 ease-in-out 
               ${janelaVisivel ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
