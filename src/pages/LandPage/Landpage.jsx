@@ -144,13 +144,13 @@ function Landpage() {
 
     </div >
 
-      <div className='flex justify-center items-center mt-50 overflow-x-auto' >
-        <img src="/Patrocinadores/adidas.jpg" alt="" className='w-12 md:w-20 m-3 md:m-5' />
-        <img src="/Patrocinadores/cs.jpg" alt="" className='w-12 md:w-20 m-3 md:m-5' />
-        <img src="/Patrocinadores/lenovo.jpg" alt="" className='w-12 md:w-20 m-3 md:m-5' />
-        <img src="/Patrocinadores/ps.jpg" alt="" className='w-12 md:w-20 m-3 md:m-5' />
-        <img src="/Patrocinadores/redbull.jpg" alt="" className='w-12 md:w-20 m-3 md:m-5' />
-        <img src="/Patrocinadores/hellmanns.jpg" alt="" className='w-12 md:w-20 m-3 md:m-5' />
+      <div className='flex justify-center items-center mt-50' >
+        <img src="/Patrocinadores/adidas.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+        <img src="/Patrocinadores/cs.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+        <img src="/Patrocinadores/lenovo.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+        <img src="/Patrocinadores/ps.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+        <img src="/Patrocinadores/redbull.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
+        <img src="/Patrocinadores/hellmanns.jpg" alt="" className='w-12 md:w-20 m-2 md:m-5' />
       </div>
 
       </div >

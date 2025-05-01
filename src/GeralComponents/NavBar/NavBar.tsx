@@ -57,7 +57,7 @@ function NavBar() {
         }
       }}
       >
-                <div className="col-span-12 md:col-span-4 p-4 ml-13 md:ml-20 flex items-center">
+                <div className="col-span-12 md:col-span-4 p-4 ml-15 md:ml-20 flex items-center">
                     <a href="https://www.furia.gg" className='mr-3'>Loja Fúria</a>
                     <a href="/" className='mx-3'>Noticias</a>
                     <a href="https://escharts.com/pt/organizations/furia-esports" className='mx-3'>E-Sports</a>
