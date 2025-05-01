@@ -1,0 +1,16 @@
+#NavBar
+{
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+    background-color:rgb(255, 255, 255);
+   
+}
+.header
+{
+    transition: transform 0.4s ease-in-out;
+}
+.some
+{
+    transform: translateY(-100%);
+}

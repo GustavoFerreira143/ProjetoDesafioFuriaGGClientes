@@ -4,9 +4,9 @@
 }
 #NoticiasFuria::-webkit-scrollbar
 {
-    background-color: white;
+    background-color: rgb(139, 139, 139);
     border-radius: 20px;
-    height: 10px;
+    height: 7px;
 }
 #NoticiasFuria::-webkit-scrollbar-thumb
 {
