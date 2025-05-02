@@ -157,7 +157,7 @@ function Landpage() {
           </div>
         </div>
 
-        <div className="w-full h-220 md:h-280" >
+        <div className="w-full h-240 md:h-310" >
           <h1 className='text-2xl md:text-3xl pl-10 md:pl-20 py-4 mt-5 text-start'>
             Noticias Furia
           </h1>
