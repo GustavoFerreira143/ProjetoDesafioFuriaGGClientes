@@ -19,7 +19,6 @@ function Landpage() {
 
       if (response.status === 200 && Array.isArray(response.data.noticias)) {
         setNoticiasRecebidas(response.data.noticias);
-        console.log(response.data.noticias)
         setNoticias(true);
       } else {
         setNoticias(false);

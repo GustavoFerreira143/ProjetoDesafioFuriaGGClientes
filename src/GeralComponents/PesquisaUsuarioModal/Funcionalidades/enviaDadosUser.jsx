@@ -126,7 +126,6 @@ export function EnviaDadosUser() {
         if (!emailRegex.test(email)) {
             setIsLoading(false);
             setsucesso('')
-            console.error('Email inválido!');
             return setError('Por favor, insira um email válido.');
 
         }
