@@ -122,9 +122,9 @@ function Landpage() {
                 className='w-full h-100 rounded'
               />
               <p className='text-black text-justify px-2 md:px-4 w-full font-semibold'>
-                {typeof noticiaSelecionada?.texto === 'string'
-                  ? noticiaSelecionada.texto
-                  : noticiaSelecionada.texto}
+                <span dangerouslySetInnerHTML={{
+                  __html: parseMensagemComLinks(noticiaSelecionada?.texto)
+                }} />
               </p>
             </div>
           </div>
@@ -169,24 +169,26 @@ function Landpage() {
           >
 
             {!noticias ? [
-              { img: '/Noticias/NoticiaFuria.jpg', texto: 'Treinos da Furia tem inicio em 24/04/2025' },
+              { img: '/Noticias/NoticiaFuria.jpg', texto: 'Treinos da Furia tem inicio em 24/04/2025 https://www.furia.gg' },
               { img: '/Noticias/CalendarioDeJogosFuria.jpg', texto: 'Calendario de Jogos Kings League já disponivel' },
               { img: '/Noticias/NoticiaFuria2.jpg', texto: 'A furiagg anunciou a ida de skullzcs ao banco de reservas. yek1ndar entra no time como stand-in.' },
-              { img: '/Noticias/FuriaKingsLeague.jpg', texto: 'Com duas vitórias, a equipe da furiagg iniciou a sua participação na kingsleague_br com a liderança geral da competição.' },
+              { img: '/Noticias/FuriaKingsLeague.jpg', texto: 'Com duas vitórias, a equipe da furiagg iniciou a sua participação na kingsleague_br https://www.furia.gg com a liderança geral da competição.' },
               {
                 img: '/Noticias/FuriaAdidas.jpg',
-                texto: <>Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site <a className='text-blue-500' href='https://www.furia.gg'>https://www.furia.gg</a>.</>,
+                texto:'Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site https://www.furia.gg .',
               }
             ].map((noticia, i) => {
               const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
-              const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoPlano;
+              const textoComLinks = parseMensagemComLinks(textoPlano); // Aplica formatação de links
+
+              const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
               const excedeLimite = textoPlano.length > 100;
 
               return (
                 <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
                   <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
                   <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
-                    {textoCortado}
+                    <span dangerouslySetInnerHTML={{ __html: textoCortado }} /> {/* Aqui é onde os links são formatados */}
                     {excedeLimite && (
                       <button
                         className="text-blue-400 ml-2 underline cursor-pointer"
@@ -215,7 +217,9 @@ function Landpage() {
                   <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
                     <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
                     <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
-                      {textoCortado}
+                      {<span dangerouslySetInnerHTML={{
+                        __html: parseMensagemComLinks(textoCortado)
+                      }} />}
                       {excedeLimite && (
                         <button
                           className="text-blue-400 ml-2 underline cursor-pointer"
