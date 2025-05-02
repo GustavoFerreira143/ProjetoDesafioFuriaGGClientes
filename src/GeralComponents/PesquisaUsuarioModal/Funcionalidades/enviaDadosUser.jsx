@@ -131,7 +131,7 @@ export function EnviaDadosUser() {
 
         }
 
-        axios.post('https://localhost:5000/enviaToken', {
+        axios.post('https://web-production-7ea7.up.railway.app/enviaToken', {
             email: email
         })
             .then(function (response) {
@@ -160,7 +160,7 @@ export function EnviaDadosUser() {
         // Envio de dados via axios
         setIsLoading(true);
         setsucesso('Carregando...');
-        axios.post('https://localhost:5000/feedback', feedBackUser)
+        axios.post('https://web-production-7ea7.up.railway.app/feedback', feedBackUser)
             .then(response => {
                 setError('');
                 setsucesso('Feedback enviado com sucesso! Obrigado.');

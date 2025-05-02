@@ -30,7 +30,7 @@ function Chat() {
     try {
       setIsLoading(true);
       setsucesso('Carregando...')
-      const resposta = await axios.post('https://localhost:5000/conversas', {
+      const resposta = await axios.post('https://web-production-7ea7.up.railway.app/conversas', {
         mensagem: mensagemUser
       });
 
