@@ -13,7 +13,7 @@ function Landpage() {
 
   async function RecebeNoticias() {
     try {
-      const response = await axios.get('https://localhost:5000/coletaNoticias', {
+      const response = await axios.get('https://web-production-7ea7.up.railway.app/coletaNoticias', {
         withCredentials: true
       });
 

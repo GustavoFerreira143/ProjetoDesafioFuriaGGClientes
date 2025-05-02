@@ -9,7 +9,7 @@ function ModalAoVivo() {
     async function enviarRequisicaoAoVivo() {
         try {
 
-            const response = await axios.post('https://localhost:5000/estaAoVivo');
+            const response = await axios.post('https://web-production-7ea7.up.railway.app/estaAoVivo');
 
             if (response.status === 200) {
                 return setAoVivo(true)
