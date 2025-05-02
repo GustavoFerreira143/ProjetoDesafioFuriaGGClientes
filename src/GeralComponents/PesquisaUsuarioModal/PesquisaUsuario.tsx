@@ -57,7 +57,7 @@ function PesquisaUsuario() {
             }
 
             <h1 className='text-2xl md:text-3xl pl-10 md:pl-20 py-4 text-start'> Feedback Furioso </h1>
-            <div className='text-center text-white bg-black h-130 p-10 flex intems-center' data-aos="fade-up">
+            <div className='text-center text-white bg-black h-130 p-10 flex intems-center md:h-160' >
                 <div className='w-80 md:w-130 m-auto'>
 
                     <h1 className='text-lg md:text-2xl'>

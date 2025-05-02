@@ -11,6 +11,9 @@ function Landpage() {
   const [noticiasRecebidas, setNoticiasRecebidas] = useState([])
 
 
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [noticiaSelecionada, setNoticiaSelecionada] = useState(null);
+
   async function RecebeNoticias() {
     try {
       const response = await axios.get('https://web-production-7ea7.up.railway.app/coletaNoticias', {
@@ -97,6 +100,38 @@ function Landpage() {
 
   return (
     <>
+      {mostrarModal && noticiaSelecionada && (
+        <div
+          className="fixed w-full h-full bg-black/80 z-40 top-0">
+          <div className='overflow-y-auto md:overflow-y-hidden fixed md:top-1/2 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2  animate-fadeIn
+                  bg-white p-5 rounded shadow-lg w-full md:w-100 h-full md:w-190 md:h-160 z-30 mt-0 md:mt-0 
+                  transition-all duration-300 ease-in-out'>
+            <div className='grid grid-cols-12'>
+              <div className='col-span-11'>
+                <h1 className='text-center mb-2 ml-14 md:ml-20'><strong>Notícias</strong></h1>
+              </div>
+              <div className='col-span-1 cursor-pointer' onClick={() => setMostrarModal(false)}>
+                <img src="/x-lg.svg" alt="Fechar" className='h-10 mb-2' />
+              </div>
+            </div>
+            <hr />
+            <div className='mt-4'>
+              <img
+                src={noticiaSelecionada?.img}
+                alt="Imagem da notícia"
+                className='w-full h-100 rounded'
+              />
+              <p className='text-black text-justify px-2 md:px-4 w-full font-semibold'>
+                {typeof noticiaSelecionada?.texto === 'string'
+                  ? noticiaSelecionada.texto
+                  : noticiaSelecionada.texto}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      )}
+
       <div id="CorpoLand">
         <div className="relative w-full h-screen">
           <div className='absolute top-0 left-0 w-full h-full z-0'>
@@ -142,25 +177,63 @@ function Landpage() {
                 img: '/Noticias/FuriaAdidas.jpg',
                 texto: <>Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site <a className='text-blue-500' href='https://www.furia.gg'>https://www.furia.gg</a>.</>,
               }
-            ].map((noticia, i) => (
-              <div key={i} className="inline-block md:w-180 h-100 md:h-140 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
-                <img src={noticia.img} className='w-full h-60 md:h-120 rounded-lg' />
-                <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap'>
-                  {noticia.texto}
-                </p>
-              </div>
-            ))
+            ].map((noticia, i) => {
+              const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
+              const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoPlano;
+              const excedeLimite = textoPlano.length > 100;
+
+              return (
+                <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                  <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
+                  <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
+                    {textoCortado}
+                    {excedeLimite && (
+                      <button
+                        className="text-blue-400 ml-2 underline cursor-pointer"
+                        onClick={() => {
+                          setNoticiaSelecionada({
+                            img: noticia.img,
+                            texto: textoPlano,
+                          });
+                          setMostrarModal(true);
+                        }}
+                      >
+                        Ver Completo
+                      </button>
+                    )}
+                  </p>
+                </div>
+              );
+            })
               :
-              noticiasRecebidas.map((noticia, i) => (
-                <>
-                  <div key={i} className="inline-block md:w-180 h-100 md:h-140 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
-                    <img src={noticia.imagem} className='w-full h-60 md:h-120 rounded-lg bg-white' />
-                    <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap'
-                      dangerouslySetInnerHTML={{ __html: parseMensagemComLinks(noticia.mensagem) }}
-                    />
+              noticiasRecebidas.map((noticia, i) => {
+                const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
+                const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoPlano;
+                const excedeLimite = textoPlano.length > 100;
+
+                return (
+                  <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                    <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
+                    <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
+                      {textoCortado}
+                      {excedeLimite && (
+                        <button
+                          className="text-blue-400 ml-2 underline cursor-pointer"
+                          onClick={() => {
+                            setNoticiaSelecionada({
+                              img: noticia.img,
+                              texto: textoPlano,
+                            });
+                            setMostrarModal(true);
+                          }}
+                        >
+                          Ver Completo
+                        </button>
+                      )}
+                    </p>
                   </div>
-                </>
-              ))}
+                );
+              })}
           </div>
 
           <PesquisaUsuario />
