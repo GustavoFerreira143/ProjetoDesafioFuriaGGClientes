@@ -35,7 +35,7 @@ export function EnviaDadosUser() {
         setIsLoading(true);
         setsucesso('Analisando Dados...');
 
-        const regexValidacao = /^[a-zA-Z0-9À-ÿ\s.,!?()'-@]{1,}$/;
+        const regexValidacao = /^[a-zA-Z0-9À-ÿ\s.,!?()'-@_]{1,}$/;
         const regexLink = /(https?:\/\/[^\s]+)/g;
 
         const {
