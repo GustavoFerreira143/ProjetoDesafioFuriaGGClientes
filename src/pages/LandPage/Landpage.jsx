@@ -175,11 +175,11 @@ function Landpage() {
               { img: '/Noticias/FuriaKingsLeague.jpg', texto: 'Com duas vitórias, a equipe da furiagg iniciou a sua participação na kingsleague_br https://www.furia.gg com a liderança geral da competição.' },
               {
                 img: '/Noticias/FuriaAdidas.jpg',
-                texto:'Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site https://www.furia.gg .',
+                texto: 'Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site https://www.furia.gg .',
               }
             ].map((noticia, i) => {
               const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
-              const textoComLinks = parseMensagemComLinks(textoPlano); // Aplica formatação de links
+              const textoComLinks = parseMensagemComLinks(textoPlano); 
 
               const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
               const excedeLimite = textoPlano.length > 100;
@@ -188,7 +188,7 @@ function Landpage() {
                 <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
                   <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
                   <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
-                    <span dangerouslySetInnerHTML={{ __html: textoCortado }} /> {/* Aqui é onde os links são formatados */}
+                    <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
                     {excedeLimite && (
                       <button
                         className="text-blue-400 ml-2 underline cursor-pointer"
@@ -210,16 +210,16 @@ function Landpage() {
               :
               noticiasRecebidas.map((noticia, i) => {
                 const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
-                const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoPlano;
+                const textoComLinks = parseMensagemComLinks(textoPlano); 
+
+                const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
                 const excedeLimite = textoPlano.length > 100;
 
                 return (
                   <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
                     <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
                     <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
-                      {<span dangerouslySetInnerHTML={{
-                        __html: parseMensagemComLinks(textoCortado)
-                      }} />}
+                      <span dangerouslySetInnerHTML={{ __html: textoCortado }} /> 
                       {excedeLimite && (
                         <button
                           className="text-blue-400 ml-2 underline cursor-pointer"
