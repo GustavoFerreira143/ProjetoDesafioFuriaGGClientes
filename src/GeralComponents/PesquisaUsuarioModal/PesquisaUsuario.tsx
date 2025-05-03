@@ -44,7 +44,7 @@ function PesquisaUsuario() {
                                 {feedBackUser.email}
                             </p>
                             <p className='text-center text-black text-sm'>
-                                Obs: Não se esqueça de conferir na caixa de Span 
+                                Obs: Não se esqueça de conferir na caixa de Span
                             </p>
                             <input type="text" value={feedBackUser.tokenEmail} onChange={(e) => setfeedBackUser({ ...feedBackUser, tokenEmail: e.currentTarget.value })} className='border rounded-lg p-2  mx-auto mt-3 w-70' placeholder='Digite seu Token' />
                             <button className='rounded-lg bg-black text-white p-2 mt-7 block mx-auto w-90 pointer-cursor hover:bg-blue-800 transition easy-in-out duration-300' onClick={() => {
@@ -183,6 +183,7 @@ function PesquisaUsuario() {
                                     <div className='col-span-12 md:col-span-4'>
                                         <p className='mt-5'>Qual Sua Rede Social mais Furiosa?*</p>
                                         <select
+                                            style={{ zIndex: 9999, position: 'relative' }}
                                             value={feedBackUser.redeSocial}
                                             onChange={(e) => setfeedBackUser({ ...feedBackUser, redeSocial: e.currentTarget.value })}
                                             className='border rounded-lg p-2 w-full'
