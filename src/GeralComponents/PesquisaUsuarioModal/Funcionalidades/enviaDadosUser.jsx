@@ -195,6 +195,9 @@ export function EnviaDadosUser() {
             })
             .catch(error => {
                 setviewToken(false);
+                setfeedBackUser({
+                    tokenEmail: ''
+                });
                 setIsLoading(false);
                 setsucesso('');
                 sessionStorage.clear();
