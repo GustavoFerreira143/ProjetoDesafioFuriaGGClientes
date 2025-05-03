@@ -17,6 +17,9 @@
     Chat interativo e em tempo real com chat bot furia.
   </li>
 </ul>
+<p>
+ Para ter acesso a aplicação basta acessar o link: https://furiasiteclientes.netlify.app
+</p>
 <h3>Layout da Aplicação</h3>
 <p>
   Para esse Projeto foram utilizados rigorosos critérios para criação de layout seguindo ao máximo o padrão da marca furia, referencias mais utilizadas foram do site de catalogo https://www.furia.gg .
