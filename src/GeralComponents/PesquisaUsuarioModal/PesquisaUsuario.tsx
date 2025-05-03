@@ -43,6 +43,9 @@ function PesquisaUsuario() {
                             <p className='text-blue-500 text-center'>
                                 {feedBackUser.email}
                             </p>
+                            <p className='text-center text-black text-sm'>
+                                Obs: Não se esqueça de conferir na caixa de Span 
+                            </p>
                             <input type="text" value={feedBackUser.tokenEmail} onChange={(e) => setfeedBackUser({ ...feedBackUser, tokenEmail: e.currentTarget.value })} className='border rounded-lg p-2  mx-auto mt-3 w-70' placeholder='Digite seu Token' />
                             <button className='rounded-lg bg-black text-white p-2 mt-7 block mx-auto w-90 pointer-cursor hover:bg-blue-800 transition easy-in-out duration-300' onClick={() => {
                                 EnviaBackEnd()
