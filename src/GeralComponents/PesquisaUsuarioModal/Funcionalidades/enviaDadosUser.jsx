@@ -195,15 +195,13 @@ export function EnviaDadosUser() {
             })
             .catch(error => {
                 setviewToken(false);
-                setfeedBackUser({
-                    tokenEmail: ''
-                });
+                setfeedBackUser(prev => ({ ...prev, tokenEmail: '' }));
                 setIsLoading(false);
                 setsucesso('');
                 sessionStorage.clear();
                 if (error.response) {
                     if (error.response.status >= 400 && error.response.status < 500) {
-                        const erroMensagem = error.response.data?.error || 'Erro de validação, tente novamente.';
+                        const erroMensagem = error.response.data?.Error || 'Erro de validação, tente novamente.';
                         setError(erroMensagem);
                     } else if (error.response.status >= 500) {
                         setError('Erro inesperado, tente novamente.');
