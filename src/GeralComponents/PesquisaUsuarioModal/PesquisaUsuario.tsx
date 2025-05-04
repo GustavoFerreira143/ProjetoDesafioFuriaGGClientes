@@ -132,7 +132,7 @@ function PesquisaUsuario() {
                     <div className='overflow-y-auto '>
                         <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-cols-3">
                             <div className="ml-5">
-                                <p className="mt-5">Insira Seu Nome*</p>
+                                <p className="mt-5">Insira Seu Nome Completo*</p>
                                 <input
                                     type="text"
                                     value={feedBackUser.nome}
@@ -238,7 +238,10 @@ function PesquisaUsuario() {
 
                         {feedBackUser.interesseCompFuria && (
                             <div>
-                                <p className='mt-5 ml-5'>Quais seus Comps Preferidos?</p>
+                                <div className='mt-5 ml-5 items-center flex'>
+                                    <p className=''>Quais seus Comps Preferidos?</p>
+                                    <p className='text-sm'>(Opcional)</p>
+                                </div>
                                 <div className='flex flex-wrap items-center justify-start'>
                                     {['CS2', 'PUBG', 'LOL', 'R6', 'Valorant', 'RocketLeague', 'Apex', 'PUBG Mobile', 'Free Fire', 'Fifa', 'Kings League', 'Furia Redram', 'Outros'].map((comp) => (
                                         <div key={comp}>
@@ -264,8 +267,10 @@ function PesquisaUsuario() {
                                         </div>
                                     ))}
                                 </div>
-
-                                <p className='mt-5'>Qual membro da equipe Furia é o seu Favorito?</p>
+                                <div className='mt-5 ml-5 items-center flex'>
+                                    <p className=''>Qual membro da equipe Furia é o seu Favorito?</p>
+                                    <p className='text-sm'>(Opcional)</p>
+                                </div>
                                 <input
                                     type="text"
                                     value={feedBackUser.membroFavorito}
@@ -298,7 +303,11 @@ function PesquisaUsuario() {
                         {feedBackUser.interesseCatalogo && (
                             <>
                                 <div>
-                                    <p className='mt-5'>Qual modelo mais te interessa?</p>
+                                    <div className='mt-5 ml-5 items-center flex'>
+                                        <p className=''>Qual modelo mais te interessa?</p>
+                                        <p className='text-sm'>(Opcional)</p>
+                                    </div>
+
                                     <input
                                         type="text"
                                         value={feedBackUser.modeloInteresse}
@@ -307,7 +316,10 @@ function PesquisaUsuario() {
                                     />
                                 </div>
                                 <div>
-                                    <p className='mt-5'>Tem algum estilo que gostaria de ver na FURIA? Por quê?</p>
+                                    <div className='mt-5 ml-5 items-center flex'>
+                                        <p className=''>Tem algum estilo que gostaria de ver na FURIA? Por quê?</p>
+                                        <p className='text-sm'>(Opcional)</p>
+                                    </div>
                                     <textarea
                                         value={feedBackUser.estiloSugestao}
                                         onChange={(e) => setfeedBackUser({ ...feedBackUser, estiloSugestao: e.target.value })}
