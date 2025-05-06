@@ -181,8 +181,8 @@ function Landpage() {
               const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
               const textoComLinks = parseMensagemComLinks(textoPlano); 
 
-              const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
-              const excedeLimite = textoPlano.length > 100;
+              const textoCortado = textoPlano.length > 90 ? textoPlano.slice(0, 90) + '...' : textoComLinks;
+              const excedeLimite = textoPlano.length > 90;
 
               return (
                 <div key={i} className="inline-block lg:w-[25%] h-110 w-[100%] md:w-[45%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
@@ -212,8 +212,8 @@ function Landpage() {
                 const textoPlano = typeof noticia.mensagem === 'string' ? noticia.mensagem : '';
                 const textoComLinks = parseMensagemComLinks(textoPlano); 
 
-                const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
-                const excedeLimite = textoPlano.length > 100;
+                const textoCortado = textoPlano.length > 90 ? textoPlano.slice(0, 90) + '...' : textoComLinks;
+                const excedeLimite = textoPlano.length > 90;
 
                 return (
                   <div key={i} className="inline-block lg:w-[25%] h-110 w-[100%] md:w-[45%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
