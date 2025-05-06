@@ -185,7 +185,7 @@ function Landpage() {
               const excedeLimite = textoPlano.length > 100;
 
               return (
-                <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                <div key={i} className="inline-block lg:w-[25%] h-110 w-[100%] md:w-[45%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
                   <img src={noticia.img} className='w-full h-[80%] rounded-lg object-cover' />
                   <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
                     <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
@@ -216,7 +216,7 @@ function Landpage() {
                 const excedeLimite = textoPlano.length > 100;
 
                 return (
-                  <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                  <div key={i} className="inline-block lg:w-[25%] h-110 w-[100%] md:w-[45%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
                     <img src={noticia.imagem} className='w-full h-[80%] rounded-lg object-cover' />
                     <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
                       <span dangerouslySetInnerHTML={{ __html: textoCortado }} /> 
