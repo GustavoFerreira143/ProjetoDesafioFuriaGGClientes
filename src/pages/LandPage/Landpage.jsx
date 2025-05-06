@@ -121,7 +121,7 @@ function Landpage() {
                 alt="Imagem da notícia"
                 className='w-full h-100 rounded'
               />
-              <p className='text-black text-justify px-2 md:px-4 w-full font-semibold'>
+              <p className='text-black text-center px-2 md:px-4 w-full '>
                 <span dangerouslySetInnerHTML={{
                   __html: parseMensagemComLinks(noticiaSelecionada?.texto)
                 }} />
