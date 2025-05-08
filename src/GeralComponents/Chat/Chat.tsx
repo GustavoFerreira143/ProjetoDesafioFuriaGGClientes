@@ -139,13 +139,13 @@ function Chat() {
                 .filter(item => item.mensagem.trim() !== '' && item.resposta.trim() !== '')
                 .map((valor, index) => (
                   <div key={index} className="w-full flex flex-col gap-1">
-                    <div className="flex justify-end">
-                      <h1 className="bg-black text-white mensagemEnviada transition-all duration-300 ease-out transform opacity-0 scale-95 animate-fadeInRight my-4">
+                    <div className="flex justify-end my-2">
+                      <h1 className="bg-black text-white mensagemEnviada transition-all duration-300 ease-out transform opacity-0 scale-95 animate-fadeInRight ">
                         {valor.mensagem}
                       </h1>
                     </div>
-                    <div className="flex justify-start">
-                      <h1 className="bg-black text-white mensagemRecebida transition-all duration-300 ease-out transform opacity-0 scale-95 animate-fadeInLeft">
+                    <div className="flex justify-start my-2">
+                      <h1 className="bg-black text-white mensagemRecebida transition-all duration-300 ease-out transform opacity-0 scale-95 animate-fadeInLeft ">
                         {formatarTextoCompleto(valor.resposta)}
                       </h1>
                     </div>
