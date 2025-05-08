@@ -130,8 +130,8 @@ function Chat() {
               <img src="/x-lg.svg" alt="" className='h-10' />
             </div>
           </div>
-          {error.length > 0 ? (<p className='text-red-500 text-center text-md'>{error}</p>) : (<p></p>)}
-          {sucesso != ''? (<p className='text-green-500 text-center text-md'>{sucesso}</p>) : (<p></p>)}
+          {error.length > 0 ? (<p className='text-red-500 text-center text-sm'>{error}</p>) : (<p></p>)}
+          {sucesso != ''? (<p className='text-green-500 text-center text-sm'>{sucesso}</p>) : (<p></p>)}
           <hr />
           <div id="Mensagens" className='h-[75%] md:h-130 w-full overflow-y-auto'>
             {respostaIa.length > 0 && respostaIa.some(item => item.mensagem.trim() !== '') &&
@@ -155,7 +155,7 @@ function Chat() {
 
           </div>
           <hr />
-          <div className='grid grid-cols-12 flex intems-center  '>
+          <div className='grid grid-cols-12 flex intems-center mt-2'>
             <div className='col-span-9 md:col-span-10 '>
               <input id="InputMensagem" type="text" placeholder='Digite Sua Mensagem' className='w-70 md:w-150 h-10 bg-white rounded-lg mt-2 p-1 border' value={mensagemUser} onChange={e => setmensagemUser(e.currentTarget.value)} />
             </div>

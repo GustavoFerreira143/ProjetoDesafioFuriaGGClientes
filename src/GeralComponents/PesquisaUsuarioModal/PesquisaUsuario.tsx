@@ -95,7 +95,7 @@ function PesquisaUsuario() {
 
             <div className={`fixed w-full h-full bg-black/80 z-40 top-0 transition-all duration-300 ease-in-out 
               ${janelaFeedback ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                <div className='fixed md:top-1/2 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 bg-white p-5 rounded overflow-y-auto shadow-lg bg-white w-full md:w-100 h-full md:w-190 md:h-190 z-40 mt-0 md:mt-0' >
+                <div className='fixed md:top-1/2 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 bg-white p-5 rounded overflow-y-auto shadow-lg bg-white w-full md:w-100 h-full md:w-190 md:h-170 z-40 mt-0 md:mt-0' >
                     <div className='grid grid-cols-12'>
                         <div className='col-span-11'>
                             <h1 className='text-center mb-2 ml-14 md:ml-20'><strong>PESQUISA DE USUARIO </strong></h1>
@@ -132,28 +132,28 @@ function PesquisaUsuario() {
                     <div className='overflow-y-auto '>
                         <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-cols-3">
                             <div className="ml-5">
-                                <p className="mt-5">Insira Seu Nome Completo*</p>
+                                <p className="mt-5 text-sm font-semibold">Insira Seu Nome Completo*</p>
                                 <input
                                     type="text"
                                     value={feedBackUser.nome}
                                     onChange={(e) => setfeedBackUser({ ...feedBackUser, nome: e.currentTarget.value })}
-                                    className="border rounded-lg p-2 mx-auto w-full"
+                                    className="border-b p-2 mx-auto w-full"
                                 />
                             </div>
                             <div className="ml-5">
-                                <p className="mt-5">Insira Seu Email*</p>
+                                <p className="mt-5 text-sm font-semibold">Insira Seu Email*</p>
                                 <input
-                                    type="text"
+                                    type="email"
                                     value={feedBackUser.email}
                                     onChange={(e) => setfeedBackUser({ ...feedBackUser, email: e.currentTarget.value })}
-                                    className="border rounded-lg p-2 mx-auto w-full"
+                                    className="border-b p-2 mx-auto w-full"
                                 />
                             </div>
                             <div className="ml-5">
-                                <p className="mt-5">Qual Estado você mora?*</p>
+                                <p className="mt-5 text-sm font-semibold">Qual Estado você mora?*</p>
                                 <input
                                     type="text"
-                                    className="border rounded-lg p-2 mx-auto w-full"
+                                    className="border-b p-2 mx-auto w-full"
                                     value={feedBackUser.estado}
                                     onChange={(e) => {
                                         setfeedBackUser({ ...feedBackUser, estado: e.currentTarget.value });
@@ -170,23 +170,22 @@ function PesquisaUsuario() {
                             <div className='ml-5 w-full'>
                                 <div className='grid grid-cols-12 gap-4'>
                                     <div className='col-span-12 md:col-span-4'>
-                                        <p className='mt-10'>Qual Sua Idade?*</p>
+                                        <p className='mt-10 text-sm font-semibold'>Qual Sua Idade?*</p>
                                         <input
                                             type="number"
                                             value={feedBackUser.idade}
                                             onChange={(e) => setfeedBackUser({ ...feedBackUser, idade: e.currentTarget.value })}
-                                            className='border rounded-lg p-2 w-full'
+                                            className='border-b p-2 mx-auto w-full'
                                             maxLength={3}
                                         />
                                     </div>
 
                                     <div className='col-span-12 md:col-span-4'>
-                                        <p className='mt-5'>Qual Sua Rede Social mais Furiosa?*</p>
+                                        <p className='mt-5 text-sm font-semibold'>Qual Sua Rede Social mais Furiosa?*</p>
                                         <select
-                                            style={{ zIndex: 9999, position: 'relative' }}
                                             value={feedBackUser.redeSocial}
                                             onChange={(e) => setfeedBackUser({ ...feedBackUser, redeSocial: e.currentTarget.value })}
-                                            className='border rounded-lg p-2 w-full'
+                                            className='mt-2 rounded-lg p-2 mx-auto w-full border'
                                         >
                                             <option value="">Selecione uma rede social</option>
                                             <option value="Instagram">Instagram</option>
@@ -203,12 +202,12 @@ function PesquisaUsuario() {
                                     </div>
 
                                     <div className='col-span-12 md:col-span-4'>
-                                        <p className='mt-5'>Qual seu Usuário da Rede Social?*</p>
+                                        <p className='mt-5 text-sm font-semibold'>Qual seu Usuário da Rede Social?*</p>
                                         <input
                                             type="text"
                                             value={feedBackUser.apelido}
                                             onChange={(e) => setfeedBackUser({ ...feedBackUser, apelido: e.currentTarget.value })}
-                                            className='border rounded-lg p-2 w-full'
+                                            className='border-b p-2 mx-auto w-full'
                                         />
                                     </div>
                                 </div>
@@ -216,7 +215,7 @@ function PesquisaUsuario() {
                         </div>
 
                         <div className='text-center'>
-                            <p className='mt-5'>Sente Interesse em competições?</p>
+                            <p className='mt-5 font-semibold '>Sente Interesse em competições?</p>
                             <div className='flex justify-center items-center'>
                                 <input
                                     className='mt-3 bg-black'
@@ -238,15 +237,15 @@ function PesquisaUsuario() {
 
                         {feedBackUser.interesseCompFuria && (
                             <div>
-                                <div className='mt-5 ml-5 items-center flex'>
-                                    <p className=''>Quais seus Comps Preferidos?</p>
+                                <div className=' mt-5 ml-5 flex items-center'>
+                                    <p className='text-sm font-semibold'>Quais seus Comps Preferidos?</p>
                                     <p className='text-sm'>(Opcional)</p>
                                 </div>
                                 <div className='flex flex-wrap items-center justify-start'>
                                     {['CS2', 'PUBG', 'LOL', 'R6', 'Valorant', 'RocketLeague', 'Apex', 'PUBG Mobile', 'Free Fire', 'Fifa', 'Kings League', 'Furia Redram', 'Outros'].map((comp) => (
                                         <div key={comp}>
                                             <input
-                                                className='mt-3 ml-5 bg-black'
+                                                className='mt-3 ml-5 bg-black '
                                                 type='checkbox'
                                                 checked={feedBackUser.compsPreferidos.includes(comp)}
                                                 onChange={(e) => {
@@ -267,20 +266,18 @@ function PesquisaUsuario() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className='mt-5 ml-5 items-center flex'>
-                                    <p className=''>Qual membro da equipe Furia é o seu Favorito?</p>
-                                    <p className='text-sm'>(Opcional)</p>
-                                </div>
+
+                                <p className='mt-5 text-sm font-semibold'>Qual membro da equipe Furia é o seu Favorito?</p>
                                 <input
                                     type="text"
                                     value={feedBackUser.membroFavorito}
                                     onChange={(e) => setfeedBackUser({ ...feedBackUser, membroFavorito: e.target.value })}
-                                    className='border rounded-lg p-2 ml-auto w-full'
+                                    className='border-b p-2 mx-auto w-full'
                                 />
                             </div>
                         )}
                         <div className='text-center'>
-                            <p className='mt-5'>Curte nosso catalogo de roupas furia?</p>
+                            <p className='mt-5 font-semibold'>Curte nosso catalogo de roupas furia?</p>
                             <div className='flex justify-center items-center'>
                                 <input
                                     className='mt-3 bg-black'
@@ -303,41 +300,42 @@ function PesquisaUsuario() {
                         {feedBackUser.interesseCatalogo && (
                             <>
                                 <div>
-                                    <div className='mt-5 ml-5 items-center flex'>
-                                        <p className=''>Qual modelo mais te interessa?</p>
-                                        <p className='text-sm'>(Opcional)</p>
-                                    </div>
-
+                                    <p className='mt-5 text-sm font-semibold'>Qual modelo mais te interessa?</p>
                                     <input
                                         type="text"
                                         value={feedBackUser.modeloInteresse}
                                         onChange={(e) => setfeedBackUser({ ...feedBackUser, modeloInteresse: e.target.value })}
-                                        className='border rounded-lg p-2 ml-auto w-full'
+                                        className='border-b p-2 mx-auto w-full'
                                     />
                                 </div>
                                 <div>
-                                    <div className='mt-5 ml-5 items-center flex'>
-                                        <p className=''>Tem algum estilo que gostaria de ver na FURIA? Por quê?</p>
-                                        <p className='text-sm'>(Opcional)</p>
-                                    </div>
+                                    <p className='mt-5 text-sm font-semibold'>Tem algum estilo que gostaria de ver na FURIA? Por quê?</p>
                                     <textarea
                                         value={feedBackUser.estiloSugestao}
                                         onChange={(e) => setfeedBackUser({ ...feedBackUser, estiloSugestao: e.target.value })}
-                                        className='block border rounded-lg p-2 mx-auto w-full h-20'
+                                        className='border-b p-2 mx-auto w-full'
                                     />
                                 </div>
                             </>
                         )}
 
 
-                        <p className='mt-5'>Insira Sua Mensagem para Nossa Equipe Furia*</p>
-                        <textarea className='block border rounded-lg p-2 mx-auto w-full h-40' value={feedBackUser.mensagem} onChange={(e) => setfeedBackUser({ ...feedBackUser, mensagem: e.currentTarget.value })} />
-                        <input
-                            className='mt-5 bg-black'
-                            type='checkbox'
-                            checked={feedBackUser.aceite}
-                            onChange={(e) => setfeedBackUser({ ...feedBackUser, aceite: e.target.checked })}
-                        /><span className='mt-5 ml-1'>Gostaria de Receber Anuncios Promocionais Furia ?</span>
+                        <p className='mt-5 text-sm font-semibold'>Insira Sua Mensagem para Nossa Equipe Furia*</p>
+                        <textarea className='border-b p-2 mx-auto w-full' value={feedBackUser.mensagem} onChange={(e) => setfeedBackUser({ ...feedBackUser, mensagem: e.currentTarget.value })} />
+                        <label className="relative inline-flex items-center cursor-pointer mt-5">
+                            <input
+                                type="checkbox"
+                                className="sr-only peer"
+                                checked={feedBackUser.aceite}
+                                onChange={(e) => setfeedBackUser({ ...feedBackUser, aceite: e.target.checked })}
+                            />
+
+                            <div className="absolute left-5 md:top-1 w-4 h-4 rounded-full transition-all duration-300 
+                            bg-black peer-checked:left-1 peer-checked:bg-white" />
+                            <div className="w-11 h-6 bg-white border border-black rounded-full transition-colors duration-300 
+                            peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-white"></div>
+                            <span className="ml-3 text-sm text-black">Gostaria de Receber Anúncios Promocionais Furia?</span>
+                        </label>
                         <button className='rounded-lg bg-black text-white p-2 mt-7 block mx-auto w-full pointer-cursor hover:bg-blue-800 transition easy-in-out duration-300' onClick={() => {
                             LimpaDados();
                             setEstado('');
@@ -346,6 +344,7 @@ function PesquisaUsuario() {
                     </div>
                 </div>
             </div>
+
 
         </>
     )
