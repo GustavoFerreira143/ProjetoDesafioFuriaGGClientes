@@ -140,7 +140,7 @@ function Chat() {
                 .map((valor, index) => (
                   <div key={index} className="w-full flex flex-col gap-1">
                     <div className="flex justify-end">
-                      <h1 className="bg-black text-white mensagemEnviada transition-all duration-300 ease-out transform opacity-0 scale-95 animate-fadeInRight">
+                      <h1 className="bg-black text-white mensagemEnviada transition-all duration-300 ease-out transform opacity-0 scale-95 animate-fadeInRight my-4">
                         {valor.mensagem}
                       </h1>
                     </div>
